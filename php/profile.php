@@ -17,7 +17,7 @@ $client = new Client("mongodb://localhost:27017");
 $collection = $client->guvidb->profile;
 
 $redis = new RedisClient();
-$redis->connect('127.0.0.1', 6379);
+// $redis->connect('127.0.0.1', 6379);
 // Handle AJAX request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the raw POST data
