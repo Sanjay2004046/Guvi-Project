@@ -11,11 +11,13 @@ header('Access-Control-Allow-Credentials: true');
 require '../assets/vendor/autoload.php';
 
 use MongoDB\Client;
-
+use Predis\Client as RedisClient;
 // Connect to MongoDB
 $client = new Client("mongodb://localhost:27017");
 $collection = $client->guvidb->profile;
 
+$redis = new RedisClient();
+$redis->connect('127.0.0.1', 6379);
 // Handle AJAX request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the raw POST data
